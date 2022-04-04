@@ -1,0 +1,42 @@
+
+
+
+
+함수 네임스페이스를 자신이 지은 프로젝트 명으로(C~~Doc/View) 변경해 주어야 합니다.
+
+
+
+
+
+
+void "자신 프로젝트 명"::OnDraw(CDC* pDC) // <- 주석 해제
+{
+	CMFCApplication2Doc* pDoc = GetDocument();
+	ASSERT_VALID(pDoc);
+	if (!pDoc)
+	{
+	  	return;
+	}
+	// 입력 영상이 읽히지 않았으면 종료 
+	if (pDoc->inputImg == NULL)
+	{
+		return;
+	}
+
+	// 입력 이미지 1
+	drawImage(pDC, pDoc->inputImg, 0, 0, pDoc->imageHeight, pDoc->imageWidth, pDoc->depth);
+
+	if (viewMode == THREE_IMAGES)
+	{
+		// 입력 이미지 2
+		drawImage(pDC, pDoc->inputImg2, 300, 0, pDoc->imageHeight, pDoc->imageWidth, pDoc->depth);
+		// 결과 이미지 
+		drawImage(pDC, pDoc->resultImg, 600, 0, pDoc->imageHeight, pDoc->imageWidth, pDoc->depth);
+
+	}
+	else
+	{
+		// TWO_IMAGES인 경우의 결과 이미지
+		drawImage(pDC, pDoc->resultImg, 300, 0, pDoc->imageHeight, pDoc->imageWidth, pDoc->depth);
+	}
+}

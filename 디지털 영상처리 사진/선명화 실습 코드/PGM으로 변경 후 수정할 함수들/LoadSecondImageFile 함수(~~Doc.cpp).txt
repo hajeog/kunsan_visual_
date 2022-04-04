@@ -1,0 +1,63 @@
+
+
+
+LoadSecondImageFile 함수가 없을 경우 사용.
+
+함수 네임스페이스를 자신이 지은 프로젝트 명으로(C~~Doc/View) 변경해 주어야 합니다.
+
+헤더 파일에도 함수 선언을 해야합니다.
+
+
+
+
+
+void "자신 프로젝트 명"::LoadSecondImageFile(CArchive& ar)
+{
+	int maxValue;
+	CString type, buf;
+	CFile* fp = ar.GetFile();
+	CString fname = fp->GetFilePath();
+	// 파일의 헤더 읽기 
+	if (strcmp(strrchr(fname, '.'), ".ppm") == 0 || strcmp(strrchr(fname, '.'), ".PPM") == 0 ||
+		strcmp(strrchr(fname, '.'), ".PGM") == 0 || strcmp(strrchr(fname, '.'), ".pgm") == 0)
+	{
+		ar.ReadString(type);
+		do {
+			ar.ReadString(buf);
+		} while (buf[0] == '#');
+
+		sscanf_s(buf, "%d %d", &imageWidth, &imageHeight);
+
+		do {
+			ar.ReadString(buf);
+		} while (buf[0] == '#');
+
+		sscanf_s(buf, "%d", &maxValue);
+
+		if (strcmp(type, "P5") == 0) { depth = 1; }
+		else { depth = 3; }
+	}
+	else if (strcmp(strrchr(fname, '.'), ".raw") == 0 ||
+		strcmp(strrchr(fname, '.'), ".RAW") == 0)
+	{
+		if (fp->GetLength() != 256 * 256)
+		{
+			AfxMessageBox("256x256 크기의 파일만 사용가능합니다.");
+			return;
+		}
+		imageWidth = 256;
+		imageHeight = 256;
+		depth = 1;
+	}
+	// 기억장소 할당 
+	inputImg2 = new unsigned char* [imageHeight];
+	for (int i = 0; i < imageHeight; i++)
+	{
+		inputImg2[i] = new unsigned char[imageWidth * depth];
+	}
+	// 영상 데이터 읽기 
+	for (int i = 0; i < imageHeight; i++)
+	{
+		ar.Read(inputImg2[i], imageWidth * depth);
+	}
+}

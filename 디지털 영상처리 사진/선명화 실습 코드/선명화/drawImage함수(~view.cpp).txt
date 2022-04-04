@@ -1,0 +1,45 @@
+
+
+
+
+
+
+함수 네임스페이스를 자신이 지은 프로젝트 명으로(C~~Doc/View) 변경해 주어야 합니다.
+
+헤더 파일에도 함수 선언을 해야합니다.
+
+
+
+void "자신 프로젝트 명"::drawImage(CDC* pDC, unsigned char** image, int offsetX, int offsetY, int height, int width, int depth) const
+{
+	if (depth == 3)		// 컬러일 때
+	{
+		for (int y = 0; y < height; y++)
+		{
+			for (int x = 0; x < width *depth; x++)
+			{
+				pDC->SetPixel(x + offsetX, y + offsetY,
+					RGB(image[y][depth * x] ,
+						image[y][depth *x + 1],
+						image[y][depth *x + 2],
+					)	// RGB 매크로의 닫는 부분
+				);		// SetPixel 함수의 닫는 부분
+			}
+		}
+	}
+	else	// 흑백일 때 
+	{
+		for (int y = 0; y < height; y++)
+		{
+			for (int x = 0; x < width; x++)
+			{
+				pDC->SetPixel(x + offsetX, y + offsetY,
+					RGB(image[y][x],
+						image[y][x],
+						image[y][x],
+						)	// RGB 매크로의 닫는 부분
+				);		// SetPixel 함수의 닫는 부분
+			}
+		}
+	}
+}

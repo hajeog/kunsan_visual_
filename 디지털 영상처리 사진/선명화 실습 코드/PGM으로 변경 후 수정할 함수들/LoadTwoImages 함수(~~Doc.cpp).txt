@@ -1,0 +1,33 @@
+
+
+
+
+함수 네임스페이스를 자신이 지은 프로젝트 명으로(C~~Doc/View) 변경해 주어야 합니다.
+
+
+
+
+
+void "자신 프로젝트 명"::LoadTwoImages()
+{
+	CFile file;
+	CFileDialog dlg(TRUE);
+
+	AfxMessageBox("Select the First Image");
+	if (dlg.DoModal() == IDOK) {
+		file.Open(dlg.GetPathName(), CFile::modeRead);
+		CArchive ar(&file, CArchive::load);
+		LoadImageFile(ar);
+		file.Close();
+	}
+
+
+	AfxMessageBox("Select the Second Image");
+	if (dlg.DoModal() == IDOK) {
+		file.Open(dlg.GetPathName(), CFile::modeRead);
+		CArchive ar(&file, CArchive::load);
+		LoadSecondImageFile(ar);
+		file.Close();
+	}
+
+}
