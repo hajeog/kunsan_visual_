@@ -664,7 +664,7 @@ void CschooleTestDoc::GeometryRotate()
 
 	Oy = imageHeight - 1;
 
-	angle = PI / 180.0 * 30.0;   // 30도를 라디안 값의 각도로 변환 
+	angle = PI / 180.0 * 30.0;   // 30도를 라디안 값의 각도로 변환 !만약 회전각을 조절하고 싶으면 해당 부분 수정하면 된다.
 
 	Cx = imageWidth / 2;   // 회전 중심의 x좌표 
 	Cy = imageHeight / 2;   // 회전 중심의 y좌표 
@@ -704,3 +704,4 @@ void CschooleTestDoc::GeometryRotate()
 		}
 	// TODO: 여기에 구현 코드 추가.
 }
+
