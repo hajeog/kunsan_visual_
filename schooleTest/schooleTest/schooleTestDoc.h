@@ -76,4 +76,8 @@ public:
 	void GeometryZoomoutSubsampling();
 	void GeometryZoomoutAvg();
 	void GeometryRotate();
+	void Erosion();
+	void Dilation();
+	void Opening();
+	void CopyResultToInput();
 };

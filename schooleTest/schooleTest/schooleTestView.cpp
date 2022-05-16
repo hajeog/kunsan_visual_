@@ -48,6 +48,9 @@ BEGIN_MESSAGE_MAP(CschooleTestView, CScrollView)
 	ON_COMMAND(ID_GEOMETRY_ZOOMOUT_SUBSAMPLING, &CschooleTestView::OnGeometryZoomoutSubsampling)
 	ON_COMMAND(ID_GEOMETRY_ZOOMOUT_AVG, &CschooleTestView::OnGeometryZoomoutAvg)
 	ON_COMMAND(ID_GEOMETRY_ROTATE, &CschooleTestView::OnGeometryRotate)
+	ON_COMMAND(ID_EROSION, &CschooleTestView::OnErosion)
+	ON_COMMAND(ID_DILATION, &CschooleTestView::OnDilation)
+	ON_COMMAND(ID_OPENING, &CschooleTestView::OnOpening)
 END_MESSAGE_MAP()
 
 // CschooleTestView 생성/소멸
@@ -434,3 +437,42 @@ void CschooleTestView::OnGeometryRotate()
 	// TODO: 여기에 명령 처리기 코드를 추가합니다.
 }
 
+
+
+void CschooleTestView::OnErosion() // 침식 연산 부분 입니다.
+{
+	CschooleTestDoc* pDoc = GetDocument();
+	ASSERT_VALID(pDoc);
+
+	if (pDoc->inputImg == NULL) return;
+	pDoc->Erosion();
+	viewMode = TWO_IMAGES;
+	Invalidate(FALSE);
+	// TODO: 여기에 명령 처리기 코드를 추가합니다.
+}
+
+
+void CschooleTestView::OnDilation() // 팽창 연산 부분 입니다.
+{
+	CschooleTestDoc* pDoc = GetDocument();
+	ASSERT_VALID(pDoc);
+
+	if (pDoc->inputImg == NULL) return;
+	pDoc->Dilation();
+	viewMode = TWO_IMAGES;
+	Invalidate(FALSE);
+	// TODO: 여기에 명령 처리기 코드를 추가합니다.
+}
+
+
+void CschooleTestView::OnOpening() // 열림 연산 부분 입니다.
+{
+	CschooleTestDoc* pDoc = GetDocument();
+	ASSERT_VALID(pDoc);
+
+	if (pDoc->inputImg == NULL) return;
+	pDoc->Opening();
+	viewMode = TWO_IMAGES;
+	Invalidate(FALSE);
+	// TODO: 여기에 명령 처리기 코드를 추가합니다.
+}

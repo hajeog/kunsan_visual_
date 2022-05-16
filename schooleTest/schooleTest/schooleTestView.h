@@ -61,6 +61,9 @@ public:
 	afx_msg void OnGeometryZoomoutSubsampling();
 	afx_msg void OnGeometryZoomoutAvg();
 	afx_msg void OnGeometryRotate();
+	afx_msg void OnErosion();
+	afx_msg void OnDilation();
+	afx_msg void OnOpening();
 };
 
 #ifndef _DEBUG  // schooleTestView.cpp의 디버그 버전

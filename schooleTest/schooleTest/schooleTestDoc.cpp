@@ -705,3 +705,75 @@ void CschooleTestDoc::GeometryRotate()
 	// TODO: 여기에 구현 코드 추가.
 }
 
+
+
+void CschooleTestDoc::Erosion() // 침식 연산 부분 입니다.
+{
+	int x, y, min, i, j;
+
+	for (y = 1; y < imageHeight - 1; y++) {
+		for (x = 1; x < imageWidth - 1; x++) {
+			min = 255;
+			if (inputImg[y - 1][x - 1] < min) min = inputImg[y - 1][x - 1];
+			if (inputImg[y - 1][x] < min) min = inputImg[y - 1][x];
+			if (inputImg[y - 1][x + 1] < min) min = inputImg[y - 1][x + 1];
+			if (inputImg[y][x - 1] < min) min = inputImg[y][x - 1];
+			if (inputImg[y][x] < min) min = inputImg[y][x];
+			if (inputImg[y][x + 1] < min) min = inputImg[y][x + 1];
+			if (inputImg[y + 1][x - 1] < min) min = inputImg[y + 1][x - 1];
+			if (inputImg[y + 1][x] < min) min = inputImg[y + 1][x];
+			if (inputImg[y + 1][x + 1] < min) min = inputImg[y + 1][x + 1];
+			resultImg[y][x] = min;
+		}
+	}
+	// TODO: 여기에 구현 코드 추가.
+}
+
+
+void CschooleTestDoc::Dilation() // 팽창 연산 부분 입니다.
+{
+	int x, y, max, i, j;
+	for (y = 1; y < imageHeight - 1; y++)
+		for (x = 1; x < imageWidth - 1; x++) {
+			max = 0;
+			if (inputImg[y - 1][x - 1] > max) max = inputImg[y - 1][x - 1];
+			if (inputImg[y - 1][x] > max) max = inputImg[y - 1][x];
+			if (inputImg[y - 1][x + 1] > max) max = inputImg[y - 1][x + 1];
+			if (inputImg[y][x - 1] > max) max = inputImg[y][x - 1];
+			if (inputImg[y][x] > max) max = inputImg[y][x];
+			if (inputImg[y][x + 1] > max) max = inputImg[y][x + 1];
+			if (inputImg[y + 1][x - 1] > max) max = inputImg[y + 1][x - 1];
+			if (inputImg[y + 1][x] > max) max = inputImg[y + 1][x];
+			if (inputImg[y + 1][x + 1] > max) max = inputImg[y + 1][x + 1];
+
+			resultImg[y][x] = max;   // 최대값을 결과 영상에 저장 
+		}
+	// TODO: 여기에 구현 코드 추가.
+}
+
+
+void CschooleTestDoc::Opening() // 열림 연산 부분 입니다
+{
+	Erosion();
+	CopyResultToInput();
+	Erosion();
+	CopyResultToInput();
+	Erosion();
+	CopyResultToInput();
+	Dilation();
+	CopyResultToInput();
+	Dilation();
+	CopyResultToInput();
+	Dilation();
+	// TODO: 여기에 구현 코드 추가.
+}
+
+
+void CschooleTestDoc::CopyResultToInput()
+{
+	int x, y;
+	for (y = 0; y < imageHeight; y++)
+		for (x = 0; x < imageWidth; x++)
+			inputImg[y][x] = resultImg[y][x];
+	// TODO: 여기에 구현 코드 추가.
+}
