@@ -51,6 +51,10 @@ BEGIN_MESSAGE_MAP(CschooleTestView, CScrollView)
 	ON_COMMAND(ID_EROSION, &CschooleTestView::OnErosion)
 	ON_COMMAND(ID_DILATION, &CschooleTestView::OnDilation)
 	ON_COMMAND(ID_OPENING, &CschooleTestView::OnOpening)
+	ON_COMMAND(ID_IMAGEROLL, &CschooleTestView::OnImageroll)
+	ON_COMMAND(ID_IMAGEUPSIDEDOWN, &CschooleTestView::OnImageupsidedown)
+	ON_COMMAND(ID_IMG_SMALLING_ROLL, &CschooleTestView::OnImgSmallingRoll)
+	ON_COMMAND(ID_SUBEBOOK_SMALLING, &CschooleTestView::OnSubebookSmalling)
 END_MESSAGE_MAP()
 
 // CschooleTestView 생성/소멸
@@ -472,6 +476,59 @@ void CschooleTestView::OnOpening() // 열림 연산 부분 입니다.
 
 	if (pDoc->inputImg == NULL) return;
 	pDoc->Opening();
+	viewMode = TWO_IMAGES;
+	Invalidate(FALSE);
+	// TODO: 여기에 명령 처리기 코드를 추가합니다.
+}
+
+
+void CschooleTestView::OnImageroll() // 상하 대칭
+{
+	CschooleTestDoc* pDoc = GetDocument();
+	ASSERT_VALID(pDoc);
+
+	if (pDoc->inputImg == NULL) return;
+	pDoc->RollImage();
+	viewMode = TWO_IMAGES;
+	Invalidate(FALSE);
+
+	// TODO: 여기에 명령 처리기 코드를 추가합니다.
+}
+
+
+void CschooleTestView::OnImageupsidedown()
+{
+	CschooleTestDoc* pDoc = GetDocument();
+	ASSERT_VALID(pDoc);
+
+	if (pDoc->inputImg == NULL) return;
+	pDoc->ROLLUPDOWN();
+	viewMode = TWO_IMAGES;
+	Invalidate(FALSE);
+	// TODO: 여기에 명령 처리기 코드를 추가합니다.
+}
+
+
+void CschooleTestView::OnImgSmallingRoll()
+{
+	CschooleTestDoc* pDoc = GetDocument();
+	ASSERT_VALID(pDoc);
+
+	if (pDoc->inputImg == NULL) return;
+	pDoc->SMALLINGROOL(256,256,1.3);
+	viewMode = TWO_IMAGES;
+	Invalidate(FALSE);
+	// TODO: 여기에 명령 처리기 코드를 추가합니다.
+}
+
+
+void CschooleTestView::OnSubebookSmalling()
+{
+	CschooleTestDoc* pDoc = GetDocument();
+	ASSERT_VALID(pDoc);
+
+	if (pDoc->inputImg == NULL) return;
+	pDoc->SMMALSUBBOOK(256, 256, 0.7);
 	viewMode = TWO_IMAGES;
 	Invalidate(FALSE);
 	// TODO: 여기에 명령 처리기 코드를 추가합니다.

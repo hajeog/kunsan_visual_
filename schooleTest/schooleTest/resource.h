@@ -51,13 +51,18 @@
 #define ID_EROSION                      32789
 #define ID_DILATION                     32790
 #define ID_OPENING                      32791
+#define ID_IMAGEROLL                    32792
+#define ID_IMAGEUPSIDEDOWN              32793
+#define ID_IMG_SMALLING_ROLL            32794
+#define ID_32795                        32795
+#define ID_SUBEBOOK_SMALLING            32796
 
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        310
-#define _APS_NEXT_COMMAND_VALUE         32792
+#define _APS_NEXT_COMMAND_VALUE         32797
 #define _APS_NEXT_CONTROL_VALUE         1000
 #define _APS_NEXT_SYMED_VALUE           310
 #endif

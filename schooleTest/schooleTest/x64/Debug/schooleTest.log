@@ -1,18 +1,23 @@
-﻿  ChildFrm.cpp
-  MainFrm.cpp
-  schooleTest.cpp
-  schooleTestDoc.cpp
-C:\Users\xhfl0\OneDrive\바탕 화면\schooleTest\schooleTest\schooleTestDoc.cpp(195,33): warning C4244: '=': 'float'에서 'unsigned char'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\xhfl0\OneDrive\바탕 화면\schooleTest\schooleTest\schooleTestDoc.cpp(176,12): warning C4101: 'j' :참조되지 않은 지역 변수입니다.
-C:\Users\xhfl0\OneDrive\바탕 화면\schooleTest\schooleTest\schooleTestDoc.cpp(454,14): warning C4244: '=': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\xhfl0\OneDrive\바탕 화면\schooleTest\schooleTest\schooleTestDoc.cpp(518,14): warning C4244: '=': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\xhfl0\OneDrive\바탕 화면\schooleTest\schooleTest\schooleTestDoc.cpp(529,12): warning C4101: 'k' :참조되지 않은 지역 변수입니다.
-C:\Users\xhfl0\OneDrive\바탕 화면\schooleTest\schooleTest\schooleTestDoc.cpp(529,9): warning C4101: 'j' :참조되지 않은 지역 변수입니다.
-C:\Users\xhfl0\OneDrive\바탕 화면\schooleTest\schooleTest\schooleTestDoc.cpp(667,27): warning C4305: '=': 'double'에서 'float'(으)로 잘립니다.
-C:\Users\xhfl0\OneDrive\바탕 화면\schooleTest\schooleTest\schooleTestDoc.cpp(712,20): warning C4101: 'j' :참조되지 않은 지역 변수입니다.
-C:\Users\xhfl0\OneDrive\바탕 화면\schooleTest\schooleTest\schooleTestDoc.cpp(712,17): warning C4101: 'i' :참조되지 않은 지역 변수입니다.
-C:\Users\xhfl0\OneDrive\바탕 화면\schooleTest\schooleTest\schooleTestDoc.cpp(735,20): warning C4101: 'j' :참조되지 않은 지역 변수입니다.
-C:\Users\xhfl0\OneDrive\바탕 화면\schooleTest\schooleTest\schooleTestDoc.cpp(735,17): warning C4101: 'i' :참조되지 않은 지역 변수입니다.
+﻿  schooleTestDoc.cpp
+C:\Users\CIE3_05\Desktop\schooleTest\schooleTest\schooleTestDoc.cpp(195,33): warning C4244: '=': 'float'에서 'unsigned char'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\CIE3_05\Desktop\schooleTest\schooleTest\schooleTestDoc.cpp(176,12): warning C4101: 'j' :참조되지 않은 지역 변수입니다.
+C:\Users\CIE3_05\Desktop\schooleTest\schooleTest\schooleTestDoc.cpp(454,14): warning C4244: '=': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\CIE3_05\Desktop\schooleTest\schooleTest\schooleTestDoc.cpp(518,14): warning C4244: '=': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\CIE3_05\Desktop\schooleTest\schooleTest\schooleTestDoc.cpp(529,12): warning C4101: 'k' :참조되지 않은 지역 변수입니다.
+C:\Users\CIE3_05\Desktop\schooleTest\schooleTest\schooleTestDoc.cpp(529,9): warning C4101: 'j' :참조되지 않은 지역 변수입니다.
+C:\Users\CIE3_05\Desktop\schooleTest\schooleTest\schooleTestDoc.cpp(667,27): warning C4305: '=': 'double'에서 'float'(으)로 잘립니다.
+C:\Users\CIE3_05\Desktop\schooleTest\schooleTest\schooleTestDoc.cpp(712,20): warning C4101: 'j' :참조되지 않은 지역 변수입니다.
+C:\Users\CIE3_05\Desktop\schooleTest\schooleTest\schooleTestDoc.cpp(712,17): warning C4101: 'i' :참조되지 않은 지역 변수입니다.
+C:\Users\CIE3_05\Desktop\schooleTest\schooleTest\schooleTestDoc.cpp(735,20): warning C4101: 'j' :참조되지 않은 지역 변수입니다.
+C:\Users\CIE3_05\Desktop\schooleTest\schooleTest\schooleTestDoc.cpp(735,17): warning C4101: 'i' :참조되지 않은 지역 변수입니다.
+C:\Users\CIE3_05\Desktop\schooleTest\schooleTest\schooleTestDoc.cpp(824,18): warning C4244: '=': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\CIE3_05\Desktop\schooleTest\schooleTest\schooleTestDoc.cpp(825,18): warning C4244: '=': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\CIE3_05\Desktop\schooleTest\schooleTest\schooleTestDoc.cpp(810,13): warning C4101: 'org_where' :참조되지 않은 지역 변수입니다.
+C:\Users\CIE3_05\Desktop\schooleTest\schooleTest\schooleTestDoc.cpp(876,18): warning C4244: '=': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\CIE3_05\Desktop\schooleTest\schooleTest\schooleTestDoc.cpp(877,18): warning C4244: '=': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\CIE3_05\Desktop\schooleTest\schooleTest\schooleTestDoc.cpp(862,13): warning C4101: 'org_where' :참조되지 않은 지역 변수입니다.
   schooleTestView.cpp
+C:\Users\CIE3_05\Desktop\schooleTest\schooleTest\schooleTestView.cpp(518,32): warning C4305: '인수': 'double'에서 'float'(으)로 잘립니다.
+C:\Users\CIE3_05\Desktop\schooleTest\schooleTest\schooleTestView.cpp(531,34): warning C4305: '인수': 'double'에서 'float'(으)로 잘립니다.
   코드를 생성하고 있습니다...
-  schooleTest.vcxproj -> C:\Users\xhfl0\OneDrive\바탕 화면\schooleTest\schooleTest\x64\Debug\schooleTest.exe
+  schooleTest.vcxproj -> C:\Users\CIE3_05\Desktop\schooleTest\schooleTest\x64\Debug\schooleTest.exe

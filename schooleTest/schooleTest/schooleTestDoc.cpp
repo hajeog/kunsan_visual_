@@ -777,3 +777,127 @@ void CschooleTestDoc::CopyResultToInput()
 			inputImg[y][x] = resultImg[y][x];
 	// TODO: 여기에 구현 코드 추가.
 }
+
+
+void CschooleTestDoc::RollImage()
+{
+	int x, y;
+	for (y = 0; y < imageHeight; y++)
+		for (x = 0; x < imageWidth; x++)
+			resultImg[imageHeight - 1 - y][x] = inputImg[y][x];
+	// TODO: 여기에 구현 코드 추가.
+}
+
+
+void CschooleTestDoc::ROLLUPDOWN()
+{
+	int x, y;
+	for (y = 0; y < imageHeight; y++)
+		for (x = 0; x < imageWidth; x++)
+			resultImg[y][x] = inputImg[y][imageWidth - 1 - x];
+	// TODO: 여기에 구현 코드 추가.
+}
+
+
+void CschooleTestDoc::SMALLINGROOL(int height, int width, float zoominfactor)
+{
+	BYTE *pZoomIng;
+	BYTE newValue;
+	int new_height = (int)(height * zoominfactor);
+	int new_withe = (int)(width * zoominfactor);
+	int heightml = height - 1;
+	int widthml = width - 1;
+	int where, org_where;
+	int r, c;// img 좌표
+	float r_orgr,r_orgc;
+	int i_orgr, i_orgc;
+	float sr, sc;
+	float I1, I2, I3, I4;
+
+	// ZoomImange 의 동적 할당
+	pZoomIng = new BYTE[new_height * new_withe];
+
+	for(r = 0 ; r<new_height;r++)
+		for (c = 0; c < new_withe; c++) {
+			r_orgr = r / zoominfactor;
+			r_orgc = c / zoominfactor;
+			i_orgr = floor(r_orgr);
+			i_orgc = floor(r_orgc);
+			sr = r_orgr - i_orgr;
+			sc = r_orgc - i_orgc;
+
+			if (i_orgr<0 || i_orgr>heightml || i_orgc<0 || i_orgc>widthml) {
+				where = r * new_withe + c;
+				pZoomIng[where] = 0;
+			}
+			else {
+				I1 = (float)inputImg[i_orgr][i_orgc];
+				I2 = (float)inputImg[i_orgr][i_orgc + 1];
+				I3 = (float)inputImg[i_orgr + 1][i_orgc + 1];
+				I4 = (float)inputImg[i_orgr + 1][i_orgc];
+
+				newValue = (BYTE)(I1 * (1 - sc) * (1 - sr) + I2 * sc * (1 - sr) + I3 * sc * sr + I4 * (1 - sc) * sr);
+				where = r * new_withe + c;
+				pZoomIng[where] = newValue;
+			}
+		}
+	for(r = 0;r<height;r++)
+		for (c = 0; c < width; c++) {
+			resultImg[r][c] = pZoomIng[r * new_withe + c];
+		}
+
+	delete[] pZoomIng;
+	// TODO: 여기에 구현 코드 추가.
+}
+
+
+void CschooleTestDoc::SMMALSUBBOOK(int height, int width, float zoomoutfacttor)
+{
+	BYTE* pZoomIng;
+	BYTE newValue;
+	int new_height = (int)(height * zoomoutfacttor);
+	int new_withe = (int)(width * zoomoutfacttor);
+	int heightml = height - 1;
+	int widthml = width - 1;
+	int where, org_where;
+	int r, c;// img 좌표
+	float r_orgr, r_orgc;
+	int i_orgr, i_orgc;
+	float sr, sc;
+	float I1, I2, I3, I4;
+
+	// ZoomImange 의 동적 할당
+	pZoomIng = new BYTE[new_height * new_withe];
+
+	for (r = 0; r < new_height; r++)
+		for (c = 0; c < new_withe; c++) {
+			r_orgr = r / zoomoutfacttor;
+			r_orgc = c / zoomoutfacttor;
+			i_orgr = floor(r_orgr);
+			i_orgc = floor(r_orgc);
+			sr = r_orgr - i_orgr;
+			sc = r_orgc - i_orgc;
+
+			if (i_orgr<0 || i_orgr>heightml || i_orgc<0 || i_orgc>widthml) {
+				where = r * new_withe + c;
+				pZoomIng[where] = 0;
+			}
+			else {
+				I1 = (float)inputImg[i_orgr][i_orgc];
+				I2 = (float)inputImg[i_orgr][i_orgc + 1];
+				I3 = (float)inputImg[i_orgr + 1][i_orgc + 1];
+				I4 = (float)inputImg[i_orgr + 1][i_orgc];
+
+				newValue = (BYTE)(I1 * (1 - sc) * (1 - sr) + I2 * sc * (1 - sr) + I3 * sc * sr + I4 * (1 - sc) * sr);
+				where = r * new_withe + c;
+				pZoomIng[where] = newValue;
+			}
+		}
+	for (r = 0; r < new_height; r++)
+		for (c = 0; c < new_withe; c++) {
+			resultImg[r][c] = pZoomIng[r * new_withe + c];
+		}
+
+	delete[] pZoomIng;
+	// TODO: 여기에 구현 코드 추가.
+}

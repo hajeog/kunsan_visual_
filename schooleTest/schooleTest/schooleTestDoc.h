@@ -80,4 +80,8 @@ public:
 	void Dilation();
 	void Opening();
 	void CopyResultToInput();
+	void RollImage();
+	void ROLLUPDOWN();
+	void SMALLINGROOL(int height, int width, float zoominfactor);
+	void SMMALSUBBOOK(int height, int width, float zoomoutfacttor);
 };

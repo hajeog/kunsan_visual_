@@ -64,6 +64,10 @@ public:
 	afx_msg void OnErosion();
 	afx_msg void OnDilation();
 	afx_msg void OnOpening();
+	afx_msg void OnImageroll();
+	afx_msg void OnImageupsidedown();
+	afx_msg void OnImgSmallingRoll();
+	afx_msg void OnSubebookSmalling();
 };
 
 #ifndef _DEBUG  // schooleTestView.cpp의 디버그 버전
